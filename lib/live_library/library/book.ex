@@ -3,7 +3,7 @@ defmodule LiveLibrary.Library.Book do
   import Ecto.Changeset
 
   schema "books" do
-    field :available, :boolean, default: false
+    field :available, :boolean, default: true
     field :cover, :string
     field :description, :string
     field :title, :string
@@ -15,8 +15,8 @@ defmodule LiveLibrary.Library.Book do
   @doc false
   def changeset(book, attrs) do
     book
-    |> cast(attrs, [:title, :description, :available, :cover])
-    |> validate_required([:title, :description, :available])
+    |> cast(attrs, [:title, :description, :available, :cover, :author_id])
+    |> validate_required([:title, :description, :available, :author_id])
     |> unique_constraint(:author_id)
   end
 end

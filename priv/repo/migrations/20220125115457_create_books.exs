@@ -7,7 +7,7 @@ defmodule LiveLibrary.Repo.Migrations.CreateBooks do
       add :description, :text
       add :available, :boolean, default: true, null: false
       add :cover, :string
-      add :author_id, references(:authors, on_delete: :nothing)
+      add :author_id, references(:authors, null: false, on_delete: :nothing)
 
       timestamps()
     end
