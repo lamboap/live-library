@@ -21,6 +21,7 @@ defmodule LiveLibraryWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    live "/books", BookLive.Index, :index
   end
 
   # Other scopes may use custom stacks.

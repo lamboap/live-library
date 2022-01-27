@@ -1,14 +1,14 @@
 defmodule LiveLibrary.Library.Book do
   use Ecto.Schema
   import Ecto.Changeset
+  alias LiveLibrary.Library.Author
 
   schema "books" do
     field :available, :boolean, default: true
     field :cover, :string
     field :description, :string
     field :title, :string
-    field :author_id, :id
-
+    belongs_to :author, Author
     timestamps()
   end
 

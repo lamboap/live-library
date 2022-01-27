@@ -138,6 +138,7 @@ defmodule LiveLibrary.Library do
   """
   def list_books do
     Repo.all(Book)
+    |> Repo.preload(:author)
   end
 
   def list_books(user) do

@@ -1,0 +1,26 @@
+<h1>Listing Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cover</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Available</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="books">
+    <%= for book <- @books do %>
+      <tr id={"book-#{book.id}"}>
+        <td><img
+              alt="book cover image" width="100" height="100"
+              src={Routes.static_path(@socket, "/images/#{book.cover}")} ></td>
+        <td><%= book.title %></td>
+        <td><%= book.author.first_name %> <%= book.author.last_name %></td>
+        <td><%= book.available %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

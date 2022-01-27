@@ -11,7 +11,7 @@
   </head>
   <body>
     <header>
-      <section class="container">
+      <section class="container root-container">
         <nav>
           <ul>
             <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
@@ -21,9 +21,12 @@
           </ul>
           <%= render "_user_menu.html", assigns %>
         </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
-        </a>
+        <div>
+          <a href="/books">
+            <img width="100" height="100" src={Routes.static_path(@conn, "/images/library-icon.png")} alt="LiveLibrary Logo"/>
+            <h1 class="root-header">LiveLibrary</h1>
+          </a>
+        </div>
       </section>
     </header>
     <%= @inner_content %>
